@@ -1,8 +1,12 @@
-<div class="card" style="width: 18  rem;">
-    <div class="card-body">
-        <h5 class="card-title">Lenguajes de Programación</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+<div class="container">
+    <div class="row">
+        <div class=" card col-12 col-sm-6 col-md-4 col-lg-3 text-justify" *ngFor="let item of getLenguajes()">
+            <img src="{{rutaImagen(item.imagen)}}" class="card-img-top mx-auto" style="width: 40%;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{item.nombre}}</h5>
+                <p class="card-text">{{item.descripcion}}</p>
+                <a href="#" class="btn btn-info">Ver más...</a>
+            </div>
+        </div>
     </div>
 </div>
