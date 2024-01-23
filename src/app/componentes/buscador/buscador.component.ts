@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Lenguaje } from '../../services/lenguajes.service';
+import { Lenguaje, LenguajesService } from '../../services/lenguajes.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-buscador',
@@ -9,6 +10,15 @@ import { Lenguaje } from '../../services/lenguajes.service';
   styleUrl: './buscador.component.css',
 })
 export class BuscadorComponent {
+  /**
+   * /buscador?termino=JAVA
+   * Servicio ---> Lenguaje[]
+   * parametro <--- variable
+   * en Servicio haremos un método para filtrar por nombre
+   */
   lenjuajes: Lenguaje[] = [];
-  constructor() {}
+  constructor(
+    private _lenguajeService: LenguajesService,
+    private _activatedRoute: ActivatedRoute
+  ) {}
 }
