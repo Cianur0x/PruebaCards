@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './componentes/home/home.component';
 import { AboutComponent } from './componentes/about/about.component';
 import { LenguajesComponent } from './componentes/lenguajes/lenguajes.component';
+import { BuscadorComponent } from './componentes/buscador/buscador.component';
 
 export const routes: Routes = [
   {
@@ -17,9 +18,12 @@ export const routes: Routes = [
     component: AboutComponent,
   },
   {
+    path: 'buscador',
+    component: BuscadorComponent,
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'home',
   },
 ];
-// hola
