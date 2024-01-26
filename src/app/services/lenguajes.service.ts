@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+// Accesos centralizadoa a la información
 @Injectable({ providedIn: 'root' })
 export class LenguajesService {
   // Variables
@@ -51,6 +52,20 @@ export class LenguajesService {
 
   rutaImagen(nombre: string) {
     return 'assets/img/' + nombre;
+  }
+
+  buscarLenguajes(termino: string): Lenguaje[] {
+    let lenguajes: Lenguaje[] = [];
+
+    console.log(termino);
+    for (let l of this._lenguajes) {
+      if (l.nombre.includes(termino)) {
+        lenguajes.push(l);
+      } else {
+      }
+    }
+    console.log(lenguajes.length);
+    return lenguajes;
   }
 }
 

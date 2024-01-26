@@ -18,11 +18,11 @@
                 <a routerLink="/about" class="nav-link">About</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" role="search" routerLink="/buscadorbuscador works!
-
-        ">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+        <form class="form-inline my-2 my-lg-0" role="search">
+            <input #termino (keyup.enter)="buscar(termino.value)" class="form-control mr-sm-2" type="search"
+                placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="button"
+                (click)="buscar(termino.value)">Buscar</button>
         </form>
     </div>
 </nav>

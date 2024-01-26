@@ -11,9 +11,8 @@ import { Lenguaje, LenguajesService } from '../../services/lenguajes.service';
 })
 export class LenguajesComponent {
   // se aceptan tipos compuestos, con null se acepta null lenguajes: Lenguaje[] | null = null;
-  lenguajes: Lenguaje[] buscador works!
-
-  = [];
+  // para qaue no teng atipo any creamos una interfaz
+  lenguajes: Lenguaje[] = [];
 
   constructor(private _LenguajesService: LenguajesService) {
     this.lenguajes = _LenguajesService.getLenguajes();

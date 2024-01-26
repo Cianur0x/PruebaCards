@@ -18,7 +18,7 @@ export const routes: Routes = [
     component: AboutComponent,
   },
   {
-    path: 'buscador',
+    path: 'buscador/:termino', // los dos puntos indican que lo recibimos acontinuacion es una variable
     component: BuscadorComponent,
   },
   {
