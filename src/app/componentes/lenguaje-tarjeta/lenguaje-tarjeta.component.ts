@@ -1,25 +1,28 @@
 import { Component, Input } from '@angular/core';
 import { Lenguaje, LenguajesService } from '../../services/lenguajes.service';
-import { ActivatedRoute } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+} from '@angular/router';
 
 @Component({
   selector: 'app-lenguaje-tarjeta',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './lenguaje-tarjeta.component.html',
   styleUrl: './lenguaje-tarjeta.component.css',
 })
 export class LenguajeTarjetaComponent {
   // va a terner un objeto lenguaje o null
+  @Input() id: number = 0;
   @Input() lenguaje: Lenguaje | null = null;
   @Input() rutaImagen: string = '';
 
-  constructor(
-    private _LenguajesService: LenguajesService,
-    _activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private router: Router) {}
 
-  // rutaImagen(imagen: string): string {
-  //   return this._LenguajesService.rutaImagen(imagen);
-  // }
+  buscarLenguaje(id: string) {
+    this.router.navigate(['/lenguaje', id]);
+  }
 }

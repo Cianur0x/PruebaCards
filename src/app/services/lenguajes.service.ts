@@ -67,6 +67,10 @@ export class LenguajesService {
     console.log(lenguajes.length);
     return lenguajes;
   }
+
+  getLenguaje(id: number): Lenguaje {
+    return this._lenguajes[id];
+  }
 }
 
 export interface Lenguaje {
