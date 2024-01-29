@@ -3,6 +3,7 @@ import { HomeComponent } from './componentes/home/home.component';
 import { AboutComponent } from './componentes/about/about.component';
 import { LenguajesComponent } from './componentes/lenguajes/lenguajes.component';
 import { BuscadorComponent } from './componentes/buscador/buscador.component';
+import { LenguajeComponent } from './componentes/lenguaje/lenguaje.component';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,10 @@ export const routes: Routes = [
   {
     path: 'lenguajes',
     component: LenguajesComponent,
+  },
+  {
+    path: 'lenguaje/:id',
+    component: LenguajeComponent,
   },
   {
     path: 'about',

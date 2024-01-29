@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Lenguaje, LenguajesService } from '../../services/lenguajes.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lenguaje-tarjeta',
@@ -13,9 +14,10 @@ export class LenguajeTarjetaComponent {
   @Input() lenguaje: Lenguaje | null = null;
   @Input() rutaImagen: string = '';
 
-  // constructor(private _LenguajesService: LenguajesService) {
-  //   this.lenguajes = _LenguajesService.getLenguajes();
-  // }
+  constructor(
+    private _LenguajesService: LenguajesService,
+    _activatedRoute: ActivatedRoute
+  ) {}
 
   // rutaImagen(imagen: string): string {
   //   return this._LenguajesService.rutaImagen(imagen);
