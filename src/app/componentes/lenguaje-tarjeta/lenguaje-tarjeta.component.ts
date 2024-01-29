@@ -22,7 +22,7 @@ export class LenguajeTarjetaComponent {
 
   constructor(private router: Router) {}
 
-  buscarLenguaje(id: string) {
-    this.router.navigate(['/lenguaje', id]);
+  verMas() {
+    this.router.navigate(['/lenguaje', this.id]);
   }
 }
