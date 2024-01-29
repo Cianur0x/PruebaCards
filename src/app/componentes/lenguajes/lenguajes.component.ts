@@ -1,11 +1,12 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { Lenguaje, LenguajesService } from '../../services/lenguajes.service';
+import { LenguajeTarjetaComponent } from '../lenguaje-tarjeta/lenguaje-tarjeta.component';
 
 @Component({
   selector: 'app-lenguajes',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, LenguajeTarjetaComponent],
   templateUrl: './lenguajes.component.html',
   styleUrl: './lenguajes.component.css',
 })

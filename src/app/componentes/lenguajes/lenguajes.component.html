@@ -1,11 +1,6 @@
 <div class="row justify-content-center">
-    <div class=" card col-10 col-sm-6 col-md-4 col-lg-3 m-1 text-justify" *ngFor="let item of lenguajes">
+    <div class=" card col-10 col-sm-6 col-md-4 col-lg-3 m-1 text-justify" *ngFor="let item of lenguajes; let i = index">
         <!-- otra forma de ruta src="{{rutaImagen(item.imagen)}}" -->
-        <img [src]="rutaImagen(item.imagen)" class="card-img-top mx-auto" style="width: 40%;" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{item.nombre}}</h5>
-            <p class="card-text">{{item.descripcion}}</p>
-            <a href="#" class="btn btn-info">Ver más...</a>
-        </div>
+        <app-lenguaje-tarjeta [lenguaje]="item" [rutaImagen]="rutaImagen(item.imagen)"></app-lenguaje-tarjeta>
     </div>
 </div>
