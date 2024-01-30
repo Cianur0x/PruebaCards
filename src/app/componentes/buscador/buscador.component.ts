@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Lenguaje, LenguajesService } from '../../services/lenguajes.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 import { LenguajeTarjetaComponent } from '../lenguaje-tarjeta/lenguaje-tarjeta.component';
 
@@ -18,18 +18,23 @@ export class BuscadorComponent {
    * parametro <--- variable
    * en Servicio haremos un método para filtrar por nombre
    */
-  lenguajes: Lenguaje[] = [];
+  lenguajesConID: any[] = [];
 
   constructor(
     private _lenguajeService: LenguajesService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoutes: ActivatedRoute,
+    private _router: Router
   ) {
-    _activatedRoute.params.subscribe((p) => {
-      this.lenguajes = _lenguajeService.buscarLenguajes(p['termino']);
+    _activatedRoutes.params.subscribe((p) => {
+      this.lenguajesConID = _lenguajeService.buscarLenguajes(p['termino']);
     });
   }
 
-  rutaImagen(nombre: string) {
+  rutaImagen(nombre: string): string {
     return this._lenguajeService.rutaImagen(nombre);
+  }
+
+  verTarjeta(i: number) {
+    this._router.navigate(['lenguaje', i]);
   }
 }

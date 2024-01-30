@@ -2,6 +2,7 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { Lenguaje, LenguajesService } from '../../services/lenguajes.service';
 import { LenguajeTarjetaComponent } from '../lenguaje-tarjeta/lenguaje-tarjeta.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lenguajes',
@@ -15,8 +16,15 @@ export class LenguajesComponent {
   // para qaue no teng atipo any creamos una interfaz
   lenguajes: Lenguaje[] = [];
 
-  constructor(private _LenguajesService: LenguajesService) {
+  constructor(
+    private _LenguajesService: LenguajesService,
+    private router: Router
+  ) {
     this.lenguajes = _LenguajesService.getLenguajes();
+  }
+
+  verTarjeta(i: number) {
+    this.router.navigate(['/lenguaje', i]);
   }
 
   rutaImagen(imagen: string): string {

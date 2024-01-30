@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Lenguaje, LenguajesService } from '../../services/lenguajes.service';
 import {
   ActivatedRoute,
@@ -16,13 +16,21 @@ import {
 })
 export class LenguajeTarjetaComponent {
   // va a terner un objeto lenguaje o null
-  @Input() id: number = 0;
   @Input() lenguaje: Lenguaje | null = null;
   @Input() rutaImagen: string = '';
+  @Input() id: number = 0;
+  @Output() botonPulsado: EventEmitter<number>;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.botonPulsado = new EventEmitter();
+  }
+
+  // verTarjeta(i: number) {
+  //   this.router.navigate(['/lenguaje', i]);
+  // }
 
   verMas() {
-    this.router.navigate(['/lenguaje', this.id]);
+    //  this.router.navigate(['/lenguaje', this.id]);
+    this.botonPulsado.emit(this.id);
   }
 }

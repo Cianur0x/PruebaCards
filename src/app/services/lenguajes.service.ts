@@ -54,20 +54,17 @@ export class LenguajesService {
     return 'assets/img/' + nombre;
   }
 
-  buscarLenguajes(termino: string): Lenguaje[] {
-    let lenguajes: Lenguaje[] = [];
-
-    console.log(termino);
-    for (let l of this._lenguajes) {
-      if (l.nombre.includes(termino)) {
-        lenguajes.push(l);
-      } else {
+  buscarLenguajes(termino: string): any[] {
+    let filtrado: any[] = [];
+    let i = 0;
+    for (let item of this._lenguajes) {
+      if (item.nombre.toLowerCase().includes(termino.toLowerCase())) {
+        filtrado.push({ id: i, item: item });
       }
+      i++;
     }
-    console.log(lenguajes.length);
-    return lenguajes;
+    return filtrado;
   }
-
   getLenguaje(id: number): Lenguaje {
     return this._lenguajes[id];
   }
